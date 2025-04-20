@@ -1,0 +1,15 @@
+export const getBooks = async () => {
+  try {
+    const res = await fetch("/data/books.json");
+    if (!res.ok) {
+      throw new Error("Failed to fetch books");
+    }
+    return await res.json();
+  } catch (err) {
+    console.error("Error fetching books:", err);
+    return [];
+  }
+};
+
+//what is res.json
+//how does this work when a backend gets implemented?

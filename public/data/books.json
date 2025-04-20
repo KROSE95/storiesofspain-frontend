@@ -1,0 +1,103 @@
+[
+  {
+    "id": 1,
+    "title": "The Shadow of the Wind",
+    "author": "Carlos Ruiz Zafon",
+    "country": "Spain",
+    "region": "Barcelona",
+    "description": "A young boy discovers a mysterious book that changes his life.",
+    "coverImage": "shadow_of_the_wind.jpg",
+    "yearPublished": 2001
+  },
+  {
+    "id": 2,
+    "title": "Norwegian Wood",
+    "author": "Haruki Murakami",
+    "country": "Japan",
+    "region": "Tokyo",
+    "description": "A nostalgic story of loss and sexuality.",
+    "coverImage": "norwegian_wood.jpg",
+    "yearPublished": 1987
+  },
+  {
+    "id": 3,
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "country": "Brazil",
+    "region": "Andalusia (Spain)",
+    "description": "A shepherd travels to Egypt in search of treasure.",
+    "coverImage": "the_alchemist.jpg",
+    "yearPublished": 1988
+  },
+  {
+    "id": 4,
+    "title": "Out of Africa",
+    "author": "Isak Dinesen",
+    "country": "Kenya",
+    "region": "Ngong Hills",
+    "description": "A memoir of life on a coffee plantation in Kenya.",
+    "coverImage": "out_of_africa.jpg",
+    "yearPublished": 1937
+  },
+  {
+    "id": 5,
+    "title": "The Kite Runner",
+    "author": "Khaled Hosseini",
+    "country": "Afghanistan",
+    "region": "Kabul",
+    "description": "A tale of friendship and redemption.",
+    "coverImage": "the_kite_runner.jpg",
+    "yearPublished": 2003
+  },
+  {
+    "id": 6,
+    "title": "My Brilliant Friend",
+    "author": "Elena Ferrante",
+    "country": "Italy",
+    "region": "Naples",
+    "description": "A complex portrait of female friendship.",
+    "coverImage": "my_brilliant_friend.jpg",
+    "yearPublished": 2011
+  },
+  {
+    "id": 7,
+    "title": "American Dirt",
+    "author": "Jeanine Cummins",
+    "country": "Mexico",
+    "region": "Acapulco",
+    "description": "A gripping story of a mother and son fleeing to the US.",
+    "coverImage": "american_dirt.jpg",
+    "yearPublished": 2020
+  },
+  {
+    "id": 8,
+    "title": "A Fine Balance",
+    "author": "Rohinton Mistry",
+    "country": "India",
+    "region": "Mumbai",
+    "description": "A deeply political and human novel set in 1970s India.",
+    "coverImage": "a_fine_balance.jpg",
+    "yearPublished": 1995
+  },
+  {
+    "id": 9,
+    "title": "Snow",
+    "author": "Orhan Pamuk",
+    "country": "Turkey",
+    "region": "Kars",
+    "description": "A poet returns to Turkey and finds it in turmoil.",
+    "coverImage": "snow.jpg",
+    "yearPublished": 2002
+  },
+  {
+    "id": 10,
+    "title": "The Little Prince",
+    "author": "Antoine de Saint-Exupery",
+    "country": "France",
+    "region": "Sahara Desert",
+    "description": "A philosophical tale of a pilot stranded in the desert.",
+    "coverImage": "the_little_prince.jpg",
+    "yearPublished": 1943
+  }
+  
+]

@@ -7,7 +7,7 @@ const Layout = () => {
   return (
     <>
       <Navbar />
-      <main className="container mt-4">
+      <main className="container-fluid py-4" style={{ minHeight: "85vh" }}>
         <Outlet />
       </main>
       <Footer />
