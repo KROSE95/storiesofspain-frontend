@@ -16,12 +16,11 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-      <Route path="/" element={<HomePage />} />
+      <Route index element={<HomePage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/admin" element={<AdminDashPage />} />
       <Route path="/books" element={<BookListPage />} />
-      <Route path="/books/:region" element={<BookListPage />} />
       <Route path="/mybooks" element={<MyBooksPage />} />
       <Route path="/*" element={<NotFoundPage />} />
       </Route>

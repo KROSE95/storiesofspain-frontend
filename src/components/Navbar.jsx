@@ -14,7 +14,7 @@ const Navbar = () => {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light px-3">
-      <Link className="navbar-brand" to="/">StoriesOfSpain</Link>
+      <Link className="navbar-brand" to="/">BookExplorer</Link>
       <div className="collapse navbar-collapse">
         <ul className="navbar-nav me-auto">
           <li className="nav-item"><Link className="nav-link" to="/books">Books</Link></li>
