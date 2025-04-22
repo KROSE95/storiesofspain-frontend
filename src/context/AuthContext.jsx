@@ -16,17 +16,40 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
+      // This fetches users from a local JSON file (to be removed when a real API implemented)
       const res = await fetch("/data/users.json");
       const users = await res.json();
-      const foundUser = users.find(
+
+      // Load users registered during runtime (stored in localStorage)
+      const registeredUsers = JSON.parse(localStorage.getItem("registeredUsers")) || [];
+      
+      // Combine both sources of users
+      const allUsers = [...users, ...registeredUsers];
+      
+      // Find a matching user by username + password
+      const matchedUser = allUsers.find(
         (u) => u.username === username && u.password === password
       );
-      if (foundUser) {
-        setUser(foundUser);
-        localStorage.setItem("user", JSON.stringify(foundUser));
+     
+      if (matchedUser) {
+        setUser(matchedUser);
+        localStorage.setItem("user", JSON.stringify(matchedUser));
         return true;
       }
+
       return false;
+      // In a real API this entire function would be replaced with
+      //const res = await fetch("https://your-backend.com/api/login", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify({ username, password })
+      // });
+      // const data = await res.json();
+      // if (res.ok) {
+      //   setUser(data.user);
+      //   localStorage.setItem("user", JSON.stringify(data.user));
+      //   return true;
+      // }
     } catch (err) {
       console.error("Failed to fetch users:", err);
       return false;
@@ -65,10 +88,32 @@ export const AuthProvider = ({ children }) => {
     };
 
     try {
-      // You can't write to the JSON file, so store just in localStorage
+
+       // Load previously registered users from localStorage
+    const existingUsers = JSON.parse(localStorage.getItem("registeredUsers")) || [];
+
+    // Add new user to the list
+    const updatedUsers = [...existingUsers, newUser];
+    localStorage.setItem("registeredUsers", JSON.stringify(updatedUsers));
+
+      // (mockup)Simulating registration by saving the new user to localstorage only
+      // which lets new user login immediately after registering
       setUser(newUser);
       localStorage.setItem("user", JSON.stringify(newUser));
       return true;
+
+      //With real API the code above would be replaced with
+      // const res = await fetch("https://storiesOfSpain/api/register", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify({ username, password })
+      // });
+      // const data = await res.json();
+      // if (res.ok) {
+      //   setUser(data.user);
+      //   localStorage.setItem("user", JSON.stringify(data.user));
+      //   return true;
+      // }
     } catch (err) {
       console.error("Registration error:", err);
       return false;
