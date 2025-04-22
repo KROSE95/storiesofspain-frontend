@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import AuthForm from "../components/AuthForm";
 
-function HomePage() {
+const RegisterPage = () => {
+  const { register } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleRegister = async (username, password) => {
+    const success = await register(username, password);
+    if (success) {
+      navigate("/mybooks");
+    }
+    return success;
+  };
+
   return (
     <div className="container mt-5">
-      <h1 style={{ color: "green" }}>🏡 RegisterPage works!</h1>
-      <button className="btn btn-primary mt-3">Hello Bootstrap</button>
+      <AuthForm
+        onSubmit={handleRegister}
+        title="Create Your Account"
+        submitLabel="Register"
+      />
     </div>
   );
-}
+};
 
-export default HomePage;
+export default RegisterPage;

@@ -1,40 +1,30 @@
-import { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import AuthForm from "../components/AuthForm";
 
-function LoginPage() {
+const LoginPage = () => {
   const { login } = useContext(AuthContext);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const success = login(username, password);
+  const handleLogin = async (username, password) => {
+    const success = await login(username, password);
     if (success) {
-      navigate("/");
-    } else {
-      setError("Invalid credentials");
+      navigate("/mybooks");
     }
+    return success;
   };
+
   return (
-    <div>
-      <h1>Login Page </h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-        <br />
-        <button type="submit">Login</button>
-        {error && <p style={{ color: "red" }}>{error}</p>}
-      </form>
+    <div className="container mt-5">
+      <AuthForm
+        onSubmit={handleLogin}
+        title="Login to Your Account"
+        submitLabel="Login"
+      />
     </div>
   );
-}
+};
 
 export default LoginPage;
+

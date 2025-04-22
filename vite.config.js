@@ -19,6 +19,6 @@ export default defineConfig({
   plugins: [react()],
   server: {
     open: true,
-    historyApiFallback: true, // 🔥 required for React Router
+    historyApiFallback: true, //  required for React Router
   },
 });

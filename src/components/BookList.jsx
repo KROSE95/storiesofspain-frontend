@@ -3,7 +3,7 @@ import BookCard from "./BookCard";
 
 const BookList = ({ books }) => {
   if (!books || books.length === 0) {
-    return <p>No books to display.</p>;
+    return <p>No books found. Try changing your filters.</p>;
   }
 
   return (

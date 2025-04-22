@@ -1,6 +1,14 @@
+// Currently using fetch to load mock data.
+// This would be replaced with axios for real API integration later.
+// .env would change line to this with real backend implementation=> VITE_API_URL=https://your-backend-url.com/api/books
+
+const API_URL = import.meta.env.VITE_API_URL;
+console.log("API URL:", API_URL);
+
 export const getBooks = async () => {
-  try {
-    const res = await fetch("/data/books.json");
+    try {
+      // With axios: return await api.get("/books");
+    const res = await fetch(API_URL);
     if (!res.ok) {
       throw new Error("Failed to fetch books");
     }
@@ -11,5 +19,3 @@ export const getBooks = async () => {
   }
 };
 
-//what is res.json
-//how does this work when a backend gets implemented?

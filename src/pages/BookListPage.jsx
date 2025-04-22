@@ -30,15 +30,31 @@ const BookListPage = () => {
   useEffect(() => {
     const lowerTitle = filters.title.toLowerCase();
     const lowerAuthor = filters.author.toLowerCase();
-
+    const lowerCountry = filters.country.toLowerCase();
+    const lowerRegion = filters.region.toLowerCase();
+    const lowerGenre = filters.genre.toLowerCase();
+  
     const results = books.filter((book) => {
       const matchesTitle = book.title.toLowerCase().includes(lowerTitle);
       const matchesAuthor = book.author.toLowerCase().includes(lowerAuthor);
-      return matchesTitle && matchesAuthor;
+      const matchesCountry = lowerCountry ? book.country.toLowerCase() === lowerCountry : true;
+      const matchesRegion = lowerRegion ? book.region.toLowerCase() === lowerRegion : true;
+      const matchesGenre = lowerGenre ? book.genre.toLowerCase() === lowerGenre : true;
+  
+      return (
+        matchesTitle &&
+        matchesAuthor &&
+        matchesCountry &&
+        matchesRegion &&
+        matchesGenre
+      );
     });
-
+  
+    console.log("Filtered books:", results);
     setFilteredBooks(results);
   }, [filters, books]);
+  
+  console.log("Active filters:", filters);
 
   const handleFilterChange = (field, value) => {
     setFilters((prev) => ({ ...prev, [field]: value }));
