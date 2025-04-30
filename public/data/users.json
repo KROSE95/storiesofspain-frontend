@@ -1,13 +1,30 @@
 [
   {
+    "id": "uuid",
+    "email": "admin@gmail.com",
     "username": "admin",
     "password": "admin123",
-    "role": "admin"
+    "role": "admin",
+    "favourites": [],
+    "toBeRead": []
   },
   {
+    "id": "uuid",
+    "email": "mook@gmail.com",
     "username": "mook",
     "password": "password123",
-    "role": "user"
+    "role": "user",
+    "favourites": [],
+    "toBeRead": []
+  },
+  {
+    "id": "uuid",
+    "email": "test@gmail.com",
+    "username": "testuser",
+    "password": "1234",
+    "role": "user",
+    "favourites": [],
+    "toBeRead": []
   }
 ]
 

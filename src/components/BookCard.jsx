@@ -1,13 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../context/AuthContext';
 import './BookCard.css';
 
-function BookCard({ book }) {
-  function onToReadClick() {
-    alert("clicked ToRead");
-  }
-  function onFavouriteClick() {
-    alert("clicked favourites");
-  }
+const BookCard = ({ book }) => {
+  const { user, updateUserLists } = useContext(AuthContext);
+
+
+  const onToReadClick = () => {
+    if (user) {
+      updateUserLists("toBeRead", book);
+    } else {
+      alert("Please log in to add to your To-Be-Read shelf.");
+    }
+  };
+
+  const onFavouriteClick = () => {
+    if (user) {
+      updateUserLists("favourites", book);
+    } else {
+      alert("Please log in to add to your Favourites shelf.");
+    }
+  };
+
+  const isInToRead = user?.toBeRead?.some((b) => b.id === book.id);
+const isInFavourites = user?.favourites?.some((b) => b.id === book.id);
 
   return (
 
@@ -37,11 +53,11 @@ function BookCard({ book }) {
 
       <div className="card-footer bg-transparent border-0 d-flex justify-content-between mt-auto">
         <button className="btn btn-outline-primary btn-sm" onClick={onToReadClick}>
-          To Read
+        {isInToRead ? "Remove from To Read" : "Add to To Read"}
         </button>
 
         <button className="btn btn-outline-secondary btn-sm" onClick={onFavouriteClick}>
-          Favourite
+        {isInFavourites ? "Remove from Favourites" : "Add to Favourites"}
         </button>
       </div>
     </div>

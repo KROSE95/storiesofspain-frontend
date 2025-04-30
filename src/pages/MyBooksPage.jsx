@@ -1,24 +1,39 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 import BookList from "../components/BookList";
+import { Navigate } from "react-router-dom";
 
-const MyBooksPage = ({ user }) => {
+const MyBooksPage = () => {
+  const { user } = useContext(AuthContext);
+
+  if (!user) {
+    return <Navigate to="/login" />;
+  }
   const favourites = user?.favourites || [];
   const toBeRead = user?.toBeRead || [];
   const finished = user?.finished || [];
 
   return (
     <div className="container mt-4">
-      <h2>📚 My Book Shelves</h2>
+      <h2 className="mb-4">📚 My Book Shelves</h2>
 
-      <div className="mt-4">
+      <section className="mb-5">
         <h4>⭐ Favourites</h4>
-        <BookList books={favourites} />
-      </div>
+        {favourites.length > 0 ? (
+          <BookList books={favourites} />
+        ) : (
+          <p className="text-muted">You haven’t favourited any books yet.</p>
+        )}
+      </section>
 
-      <div className="mt-5">
+      <section>
         <h4>📖 To Be Read</h4>
-        <BookList books={toBeRead} />
-      </div>
+        {toBeRead.length > 0 ? (
+          <BookList books={toBeRead} />
+        ) : (
+          <p className="text-muted">Your to-be-read list is empty.</p>
+        )}
+      </section>
 
       <div className="d-flex justify-content-center mt-4">
         <a href="/books" className="btn btn-outline-primary">

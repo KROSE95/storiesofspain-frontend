@@ -7,8 +7,8 @@ const LoginPage = () => {
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const handleLogin = async (username, password) => {
-    const success = await login(username, password);
+  const handleLogin = async (email, password) => {
+    const success = await login(email, password);
     if (success) {
       navigate("/mybooks");
     }
@@ -21,6 +21,7 @@ const LoginPage = () => {
         onSubmit={handleLogin}
         title="Login to Your Account"
         submitLabel="Login"
+        showUsernameField={false}
       />
     </div>
   );

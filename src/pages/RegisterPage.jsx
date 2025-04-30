@@ -7,8 +7,8 @@ const RegisterPage = () => {
   const { register } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const handleRegister = async (username, password) => {
-    const success = await register(username, password);
+  const handleRegister = async (email, password, username) => {
+    const success = await register(email, password, username);
     if (success) {
       navigate("/mybooks");
     }
@@ -21,6 +21,7 @@ const RegisterPage = () => {
         onSubmit={handleRegister}
         title="Create Your Account"
         submitLabel="Register"
+        showUsernameField={true}
       />
     </div>
   );
