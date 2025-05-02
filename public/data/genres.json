@@ -1,0 +1,12 @@
+[
+    { "id": 1, "name": "Adventure Fiction" },
+    { "id": 2, "name": "Historical Fiction" },
+    { "id": 3, "name": "Literary Fiction" },
+    { "id": 4, "name": "Contemporary Fiction" },
+    { "id": 5, "name": "Political Fiction" },
+    { "id": 6, "name": "Memoir" },
+    { "id": 7, "name": "Thriller" },
+    { "id": 8, "name": "Fantasy" },
+    { "id": 9, "name": "Philosophical Fiction" }
+  ]
+  

@@ -2,7 +2,8 @@
   {
     "id": 1,
     "title": "The Shadow of the Wind",
-    "author": "Carlos Ruiz Zafon",
+    "authorIds": [1],
+    "genreIds": [1],
     "country": "Spain",
     "region": "Barcelona",
     "description": "A young boy discovers a mysterious book that changes his life.",
@@ -12,7 +13,8 @@
   {
     "id": 2,
     "title": "Norwegian Wood",
-    "author": "Haruki Murakami",
+    "authorIds": [2],
+    "genreIds": [3],
     "country": "Japan",
     "region": "Tokyo",
     "description": "A nostalgic story of loss and sexuality.",
@@ -22,8 +24,9 @@
   {
     "id": 3,
     "title": "The Alchemist",
-    "author": "Paulo Coelho",
-    "country": "Spain, Morocco",
+    "authorIds": [3],
+    "genreIds": [1],
+    "country": "Spain, Morocco, Egypt",
     "region": "Andalusia",
     "description": "A shepherd travels to Egypt in search of treasure.",
     "coverImage": "the_alchemist.jpg",
@@ -32,7 +35,8 @@
   {
     "id": 4,
     "title": "Out of Africa",
-    "author": "Isak Dinesen",
+    "authorIds": [4],
+    "genreIds": [6],
     "country": "Kenya",
     "region": "Ngong Hills",
     "description": "A memoir of life on a coffee plantation in Kenya.",
@@ -42,7 +46,8 @@
   {
     "id": 5,
     "title": "The Kite Runner",
-    "author": "Khaled Hosseini",
+    "authorIds": [5],
+    "genreIds": [4],
     "country": "Afghanistan",
     "region": "Kabul",
     "description": "A tale of friendship and redemption.",
@@ -52,7 +57,8 @@
   {
     "id": 6,
     "title": "My Brilliant Friend",
-    "author": "Elena Ferrante",
+    "authorIds": [6],
+    "genreIds": [3],
     "country": "Italy",
     "region": "Naples",
     "description": "A complex portrait of female friendship.",
@@ -62,7 +68,8 @@
   {
     "id": 7,
     "title": "American Dirt",
-    "author": "Jeanine Cummins",
+    "authorIds": [7],
+    "genreIds": [7],
     "country": "Mexico",
     "region": "Acapulco",
     "description": "A gripping story of a mother and son fleeing to the US.",
@@ -72,7 +79,8 @@
   {
     "id": 8,
     "title": "A Fine Balance",
-    "author": "Rohinton Mistry",
+    "authorIds": [8],
+    "genreIds": [5],
     "country": "India",
     "region": "Mumbai",
     "description": "A deeply political and human novel set in 1970s India.",
@@ -82,7 +90,8 @@
   {
     "id": 9,
     "title": "Snow",
-    "author": "Orhan Pamuk",
+    "authorIds": [9],
+    "genreIds": [5],
     "country": "Turkey",
     "region": "Kars",
     "description": "A poet returns to Turkey and finds it in turmoil.",
@@ -92,12 +101,23 @@
   {
     "id": 10,
     "title": "The Little Prince",
-    "author": "Antoine de Saint-Exupery",
+    "authorIds": [10],
+    "genreIds": [8],
     "country": "France",
     "region": "Sahara Desert",
     "description": "A philosophical tale of a pilot stranded in the desert.",
     "coverImage": "the_little_prince.jpg",
     "yearPublished": 1943
+  },
+  {
+    "id": 11,
+    "title": "Kitchen",
+    "authorIds": [11],
+    "genreIds": [4],
+    "country": "Japan",
+    "region": "Tokyo",
+    "description": "A heartwarming story about a young woman navigating grief and finding solace in community and food, set in postWar Japan",
+    "coverImage": "",
+    "yearPublished": 1998
   }
-  
 ]

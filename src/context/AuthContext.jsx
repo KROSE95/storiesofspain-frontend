@@ -1,11 +1,14 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useRef } from "react";
 // import mockUsers from "../data/users";
 //
+const INACTIVITY_LIMIT = 15 * 60 * 1000; // 15 minutes
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const isAdmin = user?.role?.toLowerCase() === "admin";
+  const timerRef = useRef(null);
 
   useEffect(() => {
     const savedUser = JSON.parse(localStorage.getItem("user"));
@@ -71,6 +74,9 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     setUser(null);
     localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    localStorage.removeItem("expiry");
+    if (timerRef.current) clearTimeout(timerRef.current);
   };
 
   const getTokenClaims = () => {
@@ -83,7 +89,28 @@ export const AuthProvider = ({ children }) => {
       return null;
     }
   };
-  
+  const resetInactivityTimer = () => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => {
+      logout();
+    }, INACTIVITY_LIMIT);
+  };
+
+  useEffect(() => {
+    if (!user) return;
+
+    const events = ["mousemove", "keydown", "click"];
+    events.forEach((e) => window.addEventListener(e, resetInactivityTimer));
+
+    resetInactivityTimer(); // Start timer on load
+
+    return () => {
+      events.forEach((e) =>
+        window.removeEventListener(e, resetInactivityTimer)
+      );
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, [user]);
 
   const updateUserLists = (listName, book) => {
     if (!user) return;
@@ -143,19 +170,6 @@ export const AuthProvider = ({ children }) => {
       setUser(newUser);
       localStorage.setItem("user", JSON.stringify(newUser));
       return true;
-
-      //With real API the code above would be replaced with
-      // const res = await fetch("https://storiesOfSpain/api/register", {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify({ username, password })
-      // });
-      // const data = await res.json();
-      // if (res.ok) {
-      //   setUser(data.user);
-      //   localStorage.setItem("user", JSON.stringify(data.user));
-      //   return true;
-      // }
     } catch (err) {
       console.error("Registration error:", err);
       return false;
@@ -164,7 +178,15 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, login, logout, register, updateUserLists, getTokenClaims }}
+      value={{
+        user,
+        isAdmin,
+        login,
+        logout,
+        register,
+        updateUserLists,
+        getTokenClaims,
+      }}
     >
       {children}
     </AuthContext.Provider>

@@ -3,19 +3,66 @@
 // .env would change line to this with real backend implementation=> VITE_API_URL=https://your-backend-url.com/api/books
 
 const API_URL = import.meta.env.VITE_API_URL;
-console.log("API URL:", API_URL);
+const USE_MOCK = import.meta.env.VITE_USE_MOCK === "true";
 
-export const getBooks = async () => {
-    try {
-      // With axios: return await api.get("/books");
-    const res = await fetch(API_URL);
+console.log("USE_MOCK:", USE_MOCK);
+console.log("API_URL:", API_URL);
+
+//  Load books from real API
+const loadAPIBooks = async () => {
+  try {
+    const res = await fetch(`${API_URL}/api/Books`);
     if (!res.ok) {
-      throw new Error("Failed to fetch books");
+      throw new Error("Failed to fetch books from API");
     }
     return await res.json();
   } catch (err) {
-    console.error("Error fetching books:", err);
+    console.error("Error fetching books from API:", err);
     return [];
   }
 };
+
+//  Load books from local mock JSON
+const loadMockBooks = async () => {
+  try {
+    const [booksRes, authorsRes, genresRes] = await Promise.all([
+      fetch("/data/books.json"),
+      fetch("/data/authors.json"),
+      fetch("/data/genres.json"),
+    ]);
+
+    const [books, authors, genres] = await Promise.all([
+      booksRes.json(),
+      authorsRes.json(),
+      genresRes.json(),
+    ]);
+
+    const enrichedBooks = books.map((book) => {
+      const bookAuthors = book.authorIds.map(
+        (id) => authors.find((a) => a.id === id)?.name || "Unknown"
+      );
+      const bookGenres = book.genreIds.map(
+        (id) => genres.find((g) => g.id === id)?.name || "Unknown"
+      );
+
+      return {
+        ...book,
+        authorNames: bookAuthors,
+        genreNames: bookGenres,
+      };
+    });
+
+    return enrichedBooks;
+  } catch (err) {
+    console.error("Error loading mock books:", err);
+    return [];
+  }
+};
+
+// 🔀 Main exported function — only ONE declaration
+export const getBooks = async () => {
+  return USE_MOCK ? await loadMockBooks() : await loadAPIBooks();
+};
+
+
 

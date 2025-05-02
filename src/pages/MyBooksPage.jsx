@@ -1,16 +1,17 @@
 import React, { useContext } from "react";
+import { BookmarkContext } from "../context/BookmarkContext";
 import { AuthContext } from "../context/AuthContext";
 import BookList from "../components/BookList";
 import { Navigate } from "react-router-dom";
 
 const MyBooksPage = () => {
   const { user } = useContext(AuthContext);
+  const { favourites, toBeRead } = useContext(BookmarkContext);
 
   if (!user) {
     return <Navigate to="/login" />;
   }
-  const favourites = user?.favourites || [];
-  const toBeRead = user?.toBeRead || [];
+ 
   const finished = user?.finished || [];
 
   return (
