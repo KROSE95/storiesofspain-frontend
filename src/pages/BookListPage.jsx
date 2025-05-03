@@ -26,6 +26,13 @@ const BookListPage = () => {
       setFilteredBooks(books);
     });
   }, []);
+  useEffect(() => {
+    getBooks().then((books) => {
+      console.log("Loaded books:", books);
+      setBooks(books);
+      setFilteredBooks(books);
+    });
+  }, []);
 
   useEffect(() => {
     const lowerTitle = filters.title.toLowerCase();
@@ -33,29 +40,43 @@ const BookListPage = () => {
     const lowerCountry = filters.country.toLowerCase();
     const lowerRegion = filters.region.toLowerCase();
     const lowerGenre = filters.genre.toLowerCase();
-  
+
     const results = books.filter((book) => {
-      const matchesTitle = book.title.toLowerCase().includes(lowerTitle);
-      const matchesAuthor = book.author.toLowerCase().includes(lowerAuthor);
-      const matchesCountry = lowerCountry ? book.country.toLowerCase() === lowerCountry : true;
-      const matchesRegion = lowerRegion ? book.region.toLowerCase() === lowerRegion : true;
-      const matchesGenre = lowerGenre ? book.genre.toLowerCase() === lowerGenre : true;
+      const matchesTitle = book.title?.toLowerCase().includes(lowerTitle);
   
+      const matchesAuthor = lowerAuthor
+        ? book.authorNames?.some((name) =>
+            name.toLowerCase().includes(lowerAuthor)
+          )
+        : true;
+  
+      const matchesCountry = lowerCountry
+        ? book.country?.toLowerCase() === lowerCountry
+        : true;
+  
+      const matchesRegion = lowerRegion
+        ? book.region?.toLowerCase() === lowerRegion
+        : true;
+  
+      const matchesGenre = lowerGenre
+        ? book.genreNames?.some((g) => g.toLowerCase() === lowerGenre)
+        : true;
+
       return (
         matchesTitle &&
         matchesAuthor &&
         matchesCountry &&
-        matchesRegion &&
+        matchesRegion && 
         matchesGenre
       );
     });
-  
+
     console.log("Filtered books:", results);
     setFilteredBooks(results);
   }, [filters, books]);
-  
-  console.log("Active filters:", filters);
 
+  console.log("Active filters:", filters);
+// should print to browser's console what the current filter values are(title, author etc)
   const handleFilterChange = (field, value) => {
     setFilters((prev) => ({ ...prev, [field]: value }));
   };

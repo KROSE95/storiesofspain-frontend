@@ -29,6 +29,8 @@ const AuthForm = ({ onSubmit, title, submitLabel, showUsernameField }) => {
       <h2 className="mb-3">{title}</h2>
 
       <input
+        id="email"
+        name="email"
         className="form-control mb-3"
         type="email"
         placeholder="Email"
@@ -38,6 +40,8 @@ const AuthForm = ({ onSubmit, title, submitLabel, showUsernameField }) => {
       />
       {showUsernameField && (
         <input
+          id="username"
+          name="username"
           className="form-control mb-3"
           type="text"
           placeholder="Username"
@@ -47,6 +51,8 @@ const AuthForm = ({ onSubmit, title, submitLabel, showUsernameField }) => {
         />
       )}
       <input
+        id="password"
+        name="password"
         className="form-control mb-3"
         type="password"
         placeholder="Password"

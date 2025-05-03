@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 
 // link component behaves like a <a> tag but doesnt reload the page
 const Navbar = () => {
-  const { user, isAdmin, logout,  } = useContext(AuthContext);
+  const { user, isAdmin, logout } = useContext(AuthContext);
   // const claims = getTokenClaims();
   const navigate = useNavigate();
 
@@ -33,12 +33,14 @@ const Navbar = () => {
             </li>
           )}
 
-{isAdmin && (
-    <li className="nav-item">
-      <Link className="nav-link" to="/admin">Admin</Link>
-    </li>
-  )}
-</ul>
+          {isAdmin && (
+            <li className="nav-item">
+              <Link className="nav-link" to="/admin">
+                Admin
+              </Link>
+            </li>
+          )}
+        </ul>
         <ul className="navbar-nav ms-auto">
           {user ? (
             <>
