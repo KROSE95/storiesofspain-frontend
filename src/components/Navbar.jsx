@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import { BsList } from "react-icons/bs"; // Bs = Bootstrap //  can swap with custom SVG
 
-// link component behaves like a <a> tag but doesnt reload the page
 const Navbar = () => {
   const { user, isAdmin, logout } = useContext(AuthContext);
-  // const claims = getTokenClaims();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -14,65 +13,52 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light px-3">
-      <Link className="navbar-brand" to="/">
-        BookExplorer
-      </Link>
-      <div className="collapse navbar-collapse">
-        <ul className="navbar-nav me-auto">
-          <li className="nav-item">
-            <Link className="nav-link" to="/books">
-              Books
-            </Link>
-          </li>
-          {user && (
-            <li className="nav-item">
-              <Link className="nav-link" to="/mybooks">
-                My Books
-              </Link>
-            </li>
-          )}
+    <nav
+      className="navbar navbar-expand-lg px-3"
+      style={{
+        backgroundColor: "var(--color-parchment)",
+        borderBottom: "2px solid var(--color-burnt-orange)",
+      }}
+    >
+      <div className="container-fluid d-flex justify-content-between align-items-center">
+        {/* Hamburger (left) */}
+        <button className="btn btn-link text-dark p-0 border-0 me-2">
+          <BsList size={28} /> {/* Bookshelf ladder icon could go here */}
+        </button>
 
-          {isAdmin && (
-            <li className="nav-item">
-              <Link className="nav-link" to="/admin">
-                Admin
-              </Link>
-            </li>
-          )}
-        </ul>
-        <ul className="navbar-nav ms-auto">
+        {/* Centered brand/title */}
+        <div className="position-absolute start-50 translate-middle-x">
+          <Link className="navbar-brand text-dark fw-bold" to="/">
+            BookExplorer
+          </Link>
+        </div>
+
+        {/* <Link className="nav-link text-dark" to="/books">
+          Books
+        </Link> */}
+
+        {/* Right: Logout or login links */}
+        <div className="d-flex align-items-center">
           {user ? (
             <>
-              <li className="nav-item">
-                <span className="navbar-text me-3">
-                  Hi, {user.username || user.email} ({user.role})
-                </span>
-              </li>
-              <li className="nav-item">
-                <button
-                  className="btn btn-outline-danger btn-sm"
-                  onClick={handleLogout}
-                >
-                  Logout
-                </button>
-              </li>
+              <span className="me-3 text-muted small">
+                Hi, {user.username || user.email} ({user.role})
+              </span>
+              <button onClick={handleLogout} className="btn btn-sm">
+                Logout
+              </button>
             </>
           ) : (
             <>
-              <li className="nav-item">
-                <Link className="nav-link" to="/login">
-                  Login
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/register">
-                  Sign Up
-                </Link>
-              </li>
+              <Link className="btn btn-sm  me-2" to="/login">
+                Login
+              </Link>
+              <Link className="btn btn-sm" to="/register">
+                Sign Up
+              </Link>
             </>
           )}
-        </ul>
+        </div>
       </div>
     </nav>
   );

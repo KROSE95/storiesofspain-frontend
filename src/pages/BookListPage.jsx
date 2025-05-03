@@ -82,11 +82,11 @@ const BookListPage = () => {
   };
 
   return (
-    <div className="container-fluid">
+    <>
       <h2 className="mb-4">Explore the books of the World!</h2>
       <SearchBar filters={filters} onFilterChange={handleFilterChange} />
       <BookList books={filteredBooks} />
-    </div>
+    </>
   );
 };
 

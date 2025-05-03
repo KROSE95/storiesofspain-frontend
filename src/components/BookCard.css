@@ -1,4 +1,4 @@
-.book-card {
+/* .book-card {
   width: 100%;
   min-height: 350px;
   max-height: 500px;
@@ -6,12 +6,14 @@
   flex-direction: column;
   justify-content: space-between;
   transition: box-shadow 0.2s;
-}
-.book-cover {
+} */
+/* .book-cover {
   width: 100%;
   height: 280px;
   object-fit: cover;
   border-bottom: 1px solid #ccc;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .book-caption {
@@ -40,14 +42,19 @@
   position: relative;
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   transition: transform 0.6s;
   transform-style: preserve-3d;
 }
 .book-card-container {
-  perspective: 1000px;
   width: 100%;
   height: 100%;
-  min-height: 400px; 
+  min-height: 420px; 
+  perspective: 1000px;
+  display: flex;
+  flex-direction: column;
   cursor: pointer;
   transition: transform 0.4s ease;
 }
@@ -72,11 +79,84 @@
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
-  overflow: auto; /* 👈 scroll if content is long */
+  overflow: auto; 
   padding: 1rem;
   box-sizing: border-box;
 }
 
 .book-card-back {
   transform: rotateY(180deg);
+} */
+.book-card-container {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.book-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.book-card-container.flipped .book-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Both sides of card */
+.book-card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+/* Front Face */
+.book-card-front {
+  z-index: 2;
+}
+
+/* Back Face */
+.book-card-back {
+  transform: rotateY(180deg);
+}
+.book-card-back .card-body {
+  padding: 2rem 2rem;
+}
+.book-card-back .card-footer {
+  padding: 2rem 2rem;
+}
+
+
+.book-cover {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-caption {
+  background-color: #f8f9fa;
+  border-top: 1px solid #ddd;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .book-card-container {
+    min-height: 360px;
+  }
 }

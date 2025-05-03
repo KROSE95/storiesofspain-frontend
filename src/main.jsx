@@ -6,6 +6,8 @@ import { BookmarkProvider } from "./context/BookmarkContext.jsx";
 import "./index.css";
 import App from "./App.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

@@ -5,13 +5,14 @@ import Footer from "./Footer";
 
 const Layout = () => {
   return (
-    <>
+    <div className="d-flex flex-column min-vh-100">
       <Navbar />
-      <main className="container-fluid py-4" style={{ minHeight: "85vh" }}>
+      <main className="flex-fill container-fluid py-4" 
+      >
         <Outlet />
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

@@ -7,9 +7,10 @@ const BookList = ({ books }) => {
   }
 
   return (
-    <div className="row">
+    <div className="row justify-content-center">
       {books.map((book) => (
-        <div key={book.id} className="col-sm-12 col-md-6 col-lg-4 mb-4">
+        <div key={book.id} className="col-sm-12 col-md-6 col-lg-4 mb-4 d-flex">
+        {/*  <div key={book.id} className="col-sm-6 col-md-4 col-lg-3 mb-4"> */}
           <BookCard book={book} />
         </div>
       ))}
