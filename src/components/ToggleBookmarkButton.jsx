@@ -5,10 +5,17 @@ import { FaHeart, FaRegHeart, FaBookmark, FaRegBookmark } from "react-icons/fa";
 const ToggleBookmarkButton = ({ book, listName }) => {
   const { favourites, toBeRead, toggleBookmark } = useContext(BookmarkContext);
 
-  const isInList =
-    listName === "favourites"
-      ? favourites.some((b) => b.id === book.id)
-      : toBeRead.some((b) => b.id === book.id);
+//   const isInList =
+//     listName === "favourites"
+//       ? favourites.some((b) => b.id === book.id)
+//       : toBeRead.some((b) => b.id === book.id);
+const isInList = (list) =>
+    list.some((b) => String(b.id) === String(book.id));
+  
+  const inList = listName === "favourites"
+    ? isInList(favourites)
+    : isInList(toBeRead);
+  
 
   const handleClick = () => {
     toggleBookmark(book, listName);
@@ -22,12 +29,12 @@ const ToggleBookmarkButton = ({ book, listName }) => {
 
   return (
     <span onClick={handleClick} title={`Toggle ${listName}`}>
-      {listName === "favourites" ? (
-        isInList ? <FaHeart style={iconStyle} /> : <FaRegHeart style={iconStyle} />
-      ) : (
-        isInList ? <FaBookmark style={iconStyle} /> : <FaRegBookmark style={iconStyle} />
-      )}
-    </span>
+    {listName === "favourites" ? (
+      inList ? <FaHeart style={iconStyle} /> : <FaRegHeart style={iconStyle} />
+    ) : (
+      inList ? <FaBookmark style={iconStyle} /> : <FaRegBookmark style={iconStyle} />
+    )}
+  </span>
   );
 };
 

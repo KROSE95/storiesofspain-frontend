@@ -22,8 +22,14 @@ const Navbar = () => {
     >
       <div className="container-fluid d-flex justify-content-between align-items-center">
         {/* Hamburger (left) */}
-        <button className="btn btn-link text-dark p-0 border-0 me-2">
-          <BsList size={28} /> {/* Bookshelf ladder icon could go here */}
+        <button
+          className="btn btn-link text-dark p-0 border-0 me-2"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#sidebarMenu"
+          aria-controls="sidebarMenu"
+        >
+          <BsList size={28} />
         </button>
 
         {/* Centered brand/title */}
@@ -32,10 +38,6 @@ const Navbar = () => {
             BookExplorer
           </Link>
         </div>
-
-        {/* <Link className="nav-link text-dark" to="/books">
-          Books
-        </Link> */}
 
         {/* Right: Logout or login links */}
         <div className="d-flex align-items-center">
@@ -49,14 +51,14 @@ const Navbar = () => {
               </button>
             </>
           ) : (
-            <>
-              <Link className="btn btn-sm  me-2" to="/login">
+            <div className="d-flex align-items-center gap-3">
+              <Link to="/login" className="text-dark text-decoration-none">
                 Login
               </Link>
-              <Link className="btn btn-sm" to="/register">
+              <Link to="/register" className="text-dark text-decoration-none">
                 Sign Up
               </Link>
-            </>
+            </div>
           )}
         </div>
       </div>

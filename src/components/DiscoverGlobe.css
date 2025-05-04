@@ -1,0 +1,36 @@
+.discover-container {
+    background-color: var(--color-parchment);
+    border: 2px solid var(--color-burnt-orange);
+    border-radius: 12px;
+    margin: 2rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  align-items: center;
+    text-align: center;
+    
+  }
+  
+  .globe-wrapper {
+    height: 300px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+  }
+  .globe-container {
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    margin: 0 auto;
+    
+  }
+  .clickable-globe {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .clickable-globe:hover {
+    transform: scale(1.03);
+  }
+  

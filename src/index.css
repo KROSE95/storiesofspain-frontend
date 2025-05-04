@@ -68,6 +68,27 @@ button:focus-visible {
   background-color: var(--color-parchment);
 }
 
+.text-decoration-none:hover {
+  text-decoration: underline;
+}
+.offcanvas {
+  width: 240px;
+}
+
+
+.sidebar-link {
+  color: var(--color-wood-brown);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.sidebar-link:hover {
+  color: var(--color-burnt-orange);
+  text-decoration: underline;
+}
+
+
 /* Optional: media queries for theme variants */
 @media (prefers-color-scheme: light) {
   :root {
@@ -80,5 +101,6 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+  
 }
 

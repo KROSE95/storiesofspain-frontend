@@ -1,0 +1,20 @@
+
+.spinning-globe {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: transform 10.8s ease;
+  }
+  
+  .spinning-globe:hover {
+    transform: scale(1.05);
+  }
+  
+  .spinning-globe img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  

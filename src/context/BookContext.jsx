@@ -10,8 +10,24 @@ export const BookProvider = ({ children }) => {
     getBooks().then(setBooks);
   }, []);
 
+  const addBook = (newBook) => {
+    setBooks((prev) => [...prev, { ...newBook, id: crypto.randomUUID() }]);
+  };
+
+  const editBook = (id, updatedFields) => {
+    setBooks((prev) =>
+      prev.map((book) =>
+        book.id === id ? { ...book, ...updatedFields } : book
+      )
+    );
+  };
+
+  const deleteBook = (id) => {
+    setBooks((prev) => prev.filter((book) => book.id !== id));
+  };
+
   return (
-    <BookContext.Provider value={{ books, setBooks }}>
+    <BookContext.Provider value={{ books, addBook, editBook, deleteBook }}>
       {children}
     </BookContext.Provider>
   );

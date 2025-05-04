@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import BookCarousel from "../components/BookCarousel";
+import DiscoverGlobe from "../components/DiscoverGlobe";
+import CountryGrid from "../components/CountryGrid";
 import { getBooks } from "../services/bookService";
+
 
 const HomePage = () => {
   const [randomBooks, setRandomBooks] = useState([]);
@@ -14,7 +17,6 @@ const HomePage = () => {
 
   return (
     <div className="homepage">
-      
       <div className="book_city-image d-flex justify-content-center ">
         <img
           src="/covers/book_city.jpg"
@@ -27,7 +29,6 @@ const HomePage = () => {
           }}
         />
       </div>
-     
 
       {/* Carousel */}
       <section className="mt-3">
@@ -36,6 +37,15 @@ const HomePage = () => {
           <BookCarousel books={randomBooks} />
         </div>
       </section>
+{/*Two column: discover + country grid*/} 
+<div className="row mt-5 gx-4">
+        <div className="col-md-6">
+          <DiscoverGlobe />
+        </div>
+        <div className="col-md-6">
+          <CountryGrid />
+        </div>
+      </div>
     </div>
   );
 };

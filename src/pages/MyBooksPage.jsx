@@ -11,8 +11,9 @@ const MyBooksPage = () => {
   if (!user) {
     return <Navigate to="/login" />;
   }
- 
-  const finished = user?.finished || [];
+
+  console.log("Favourites:", favourites);
+  console.log("To Be Read:", toBeRead);
 
   return (
     <div className="container mt-4">
@@ -46,5 +47,3 @@ const MyBooksPage = () => {
 };
 
 export default MyBooksPage;
-
-  

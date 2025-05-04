@@ -1,6 +1,6 @@
 [
   {
-    "id": "uuid",
+    "id": "admin-123",
     "email": "admin@gmail.com",
     "username": "admin",
     "password": "admin123",
@@ -9,7 +9,7 @@
     "toBeRead": []
   },
   {
-    "id": "uuid",
+    "id": "user-001",
     "email": "mook@gmail.com",
     "username": "mook",
     "password": "password123",
@@ -18,7 +18,7 @@
     "toBeRead": []
   },
   {
-    "id": "uuid",
+    "id": "user-002",
     "email": "test@gmail.com",
     "username": "testuser",
     "password": "1234",

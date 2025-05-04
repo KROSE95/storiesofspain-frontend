@@ -48,6 +48,12 @@ export const toggleBookmark = async (book, listType) => {
     localStorage.setItem("bookmarks", JSON.stringify(allBookmarks));
     return true;
   }
+  if (!book || !book.id) {
+    console.warn("Invalid book object passed to toggleBookmark", book);
+    return false;
+  }
+  console.log("Toggling bookmark:", book, "in", listName);
+
 
   try {
     const res = await fetch(`${API_URL}/api/Bookmarks`, {
