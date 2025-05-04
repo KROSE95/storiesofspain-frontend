@@ -41,7 +41,7 @@ const Navbar = () => {
 
           {user ? (
             <>
-              <span className="me-3 text-muted small">
+              <span className="me-3 text-muted small d-none d-md-inline">
                 Hi, {user.username || user.email} ({user.role})
               </span>
               <button onClick={handleLogout} className="btn btn-sm">

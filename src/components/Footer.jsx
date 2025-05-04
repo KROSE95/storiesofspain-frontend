@@ -18,10 +18,8 @@ const Footer = () => {
         </div>
         <p className="fst-italic small">Travel through stories — discover books by place and genre</p>
         <p className="small text-muted">
-          &copy; {new Date().getFullYear()} BookExplorer | Coursework |{" "}
-          <a href="https://github.com/KROSE95/storiesofspain-frontend" target="_blank" rel="noopener noreferrer" className="github-link">
-            GitHub
-          </a>
+          &copy; {new Date().getFullYear()} BookExplorer | Coursework 
+          
         </p>
       </footer>
     );

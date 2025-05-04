@@ -30,19 +30,7 @@ export const BookmarkProvider = ({ children }) => {
     /*remove after */
     const idMatch = (b) => String(b.id) === String(book.id);
 
-    // if (listName === "favourites") {
-    //   setFavourites((prev) =>
-    //     prev.some((b) => b.id === book.id)
-    //       ? prev.filter((b) => b.id !== book.id)
-    //       : [...prev, book]
-    //   );
-    // } else if (listName === "toBeRead") {
-    //   setToBeRead((prev) =>
-    //     prev.some((b) => b.id === book.id)
-    //       ? prev.filter((b) => b.id !== book.id)
-    //       : [...prev, book]
-    //   );
-    // }
+  
     if (listName === "favourites") {
         setFavourites((prev) =>
           prev.some(idMatch) ? prev.filter((b) => !idMatch(b)) : [...prev, book]

@@ -59,7 +59,7 @@ const loadMockBooks = async () => {
   }
 };
 
-// 🔀 Main exported function — only ONE declaration
+// Main exported function — only ONE declaration
 export const getBooks = async () => {
   return USE_MOCK ? await loadMockBooks() : await loadAPIBooks();
 };

@@ -50,10 +50,7 @@ const BookCarousel = ({ books }) => {
               <Button variant="secondary" onClick={handleClose}>
                 Close
               </Button>
-              {/* <div className="card-footer d-flex justify-content-end gap-3">
-            <ToggleBookmarkButton book={book} listName="favourites" />
-            <ToggleBookmarkButton book={book} listName="toBeRead" />
-          </div> */}
+            
             </Modal.Footer>
           </>
         )}
