@@ -37,7 +37,7 @@ const CountryGrid = () => {
           className="btn btn-sm btn-orange"
           onClick={() => navigate("/books")}
         >
-          See All Countries →
+          See More →
         </button>
       </div>
     </div>

@@ -8,14 +8,14 @@ const Sidebar = () => {
 
   return (
     <div
-      className="offcanvas offcanvas-start"
+      className="offcanvas offcanvas-start custom-sidebar"
       tabIndex="-1"
       id="sidebarMenu"
       aria-labelledby="sidebarMenuLabel"
-      style={{ backgroundColor: "var(--color-parchment)" }}
+      
     >
       <div className="offcanvas-header">
-        <h5 className="offcanvas-title" id="sidebarMenuLabel">
+        <h5 className="offcanvas-title sidebar-title" id="sidebarMenuLabel">
            Book Explorer
         </h5>
         <button
@@ -26,7 +26,7 @@ const Sidebar = () => {
         ></button>
       </div>
 
-      <div className="offcanvas-body d-flex flex-column gap-2">
+      <div className="offcanvas-body d-flex flex-column gap-3">
         <Link to="/books" className="sidebar-link">
            All Books
         </Link>
@@ -44,7 +44,7 @@ const Sidebar = () => {
         {isAdmin && (
           <>
             <hr />
-            <h6 className="fw-bold">Admin Tools</h6>
+            <h6 className="sidebar-subheading">Admin Tools</h6>
             <Link to="/admin" className="sidebar-link">
                Admin Dashboard
             </Link>

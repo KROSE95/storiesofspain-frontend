@@ -1,29 +1,23 @@
-:root {
-  --color-parchment: #FFF8E1;
-  --color-pale-yellow: #FEF9C3;
-  --color-burnt-orange: #F97316;
-  --color-wood-brown: #4E342E;
-  --color-light-wood: #D7CCC8;
-  --color-rich-wood: #8D6E63;
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
+:root {
+  --color-accent: #F79F79;
+  --color-yellow: #F7D08A;
+  --color-green: #E3F09B;
+  --color-teal: #87B6A7;
+  --color-brown: #5B5941;
+
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Open Sans', sans-serif;
+}
 body {
   margin: 0;
   padding: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #ffffff;
-  color: #213547;
+  font-family: var(--font-body);
+  background-color: #fff;
+  color: var(--color-brown);
+  line-height: 1.6;
 }
 
 a {
@@ -55,14 +49,6 @@ button:focus-visible {
 }
 
 /* Optional color helper classes */
-.btn-orange {
-  background-color: var(--color-burnt-orange);
-  color: white;
-  border: none;
-}
-.btn-orange:hover {
-  background-color: #ea6510;
-}
 
 .bg-parchment {
   background-color: var(--color-parchment);

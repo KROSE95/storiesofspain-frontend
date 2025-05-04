@@ -13,13 +13,8 @@ const Navbar = () => {
   };
 
   return (
-    <nav
-      className="navbar navbar-expand-lg px-3"
-      style={{
-        backgroundColor: "var(--color-parchment)",
-        borderBottom: "2px solid var(--color-burnt-orange)",
-      }}
-    >
+    <nav className="navbar navbar-expand-lg px-3 custom-navbar">
+
       <div className="container-fluid d-flex justify-content-between align-items-center">
         {/* Hamburger (left) */}
         <button
