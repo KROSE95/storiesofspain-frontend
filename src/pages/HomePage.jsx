@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import BookCarousel from "../components/BookCarousel";
 import DiscoverGlobe from "../components/DiscoverGlobe";
 import CountryGrid from "../components/CountryGrid";
@@ -14,21 +15,27 @@ const HomePage = () => {
       setRandomBooks(shuffled.slice(0, 5));
     });
   }, []);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === "#discover") {
+      const el = document.getElementById("discover");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
 
   return (
-    <div className="homepage">
-      <div className="book_city-image d-flex justify-content-center ">
+    <div className="homepage" key={location.key}>
+      <div className="book_city-image-container">
         <img
           src="/covers/book_city.jpg"
           alt="Discover the world through books"
-          className="img-fluid w-50"
-          style={{
-            height: "200px",
-            objectFit: "cover",
-            objectPosition: "center",
-          }}
+          className="book_city-image"
         />
       </div>
+
       <section className="text-center mt-4 px-3">
         <h2 className="heading-sm">Welcome to BookExplorer</h2>
         <p className="lead">
@@ -42,7 +49,7 @@ const HomePage = () => {
       <section className="mt-4">
         <div className="row gx-4">
           <div className="col-md-6">
-            <div className="section-panel panel-teal">
+            <div id="discover" className="section-panel panel-teal">
               <DiscoverGlobe />
             </div>
           </div>
@@ -60,7 +67,7 @@ const HomePage = () => {
       {/* Carousel */}
       <section className="section-panel mt-4">
         <div className="container" style={{ maxWidth: "900px" }}>
-          <h3 className="mb-3 text-center heading-sm">Featured Books</h3>
+          <h3 className="mb-3 text-center heading-sm">Featured Books to try</h3>
           <BookCarousel books={randomBooks} />
         </div>
       </section>

@@ -14,7 +14,6 @@ const Navbar = () => {
 
   return (
     <nav className="navbar navbar-expand-lg px-3 custom-navbar">
-
       <div className="container-fluid d-flex justify-content-between align-items-center">
         {/* Hamburger (left) */}
         <button
@@ -36,6 +35,10 @@ const Navbar = () => {
 
         {/* Right: Logout or login links */}
         <div className="d-flex align-items-center">
+          <Link to="/books" className="text-dark text-decoration-none me-3 browse-link">
+             Browse
+          </Link>
+
           {user ? (
             <>
               <span className="me-3 text-muted small">

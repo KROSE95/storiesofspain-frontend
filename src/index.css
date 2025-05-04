@@ -5,7 +5,9 @@
   --color-green: #E3F09B;
   --color-teal: #87B6A7;
   --color-brown: #5B5941;
-
+  --color-parchment: #f5f2df;
+  --color-lemon:#E9E5BE;
+  
   --font-heading: 'Playfair Display', serif;
   --font-body: 'Open Sans', sans-serif;
 }
@@ -15,9 +17,10 @@ body {
   min-width: 320px;
   min-height: 100vh;
   font-family: var(--font-body);
-  background-color: #fff;
+  /* background-color: var(--color-parchment); */
   color: var(--color-brown);
   line-height: 1.6;
+
 }
 
 a {
@@ -50,9 +53,9 @@ button:focus-visible {
 
 /* Optional color helper classes */
 
-.bg-parchment {
+/* .bg-parchment {
   background-color: var(--color-parchment);
-}
+} */
 
 .text-decoration-none:hover {
   text-decoration: underline;
@@ -62,17 +65,17 @@ button:focus-visible {
 }
 
 
-.sidebar-link {
-  color: var(--color-wood-brown);
+/* .sidebar-link {
+  color: var(--color-brown);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s ease;
 }
 
 .sidebar-link:hover {
-  color: var(--color-burnt-orange);
+  color: var(--color-yellow);
   text-decoration: underline;
-}
+} */
 
 
 /* Optional: media queries for theme variants */

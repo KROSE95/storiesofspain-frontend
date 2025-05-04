@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./AuthForm.css";
 
 const AuthForm = ({ onSubmit, title, submitLabel, showUsernameField }) => {
   const [email, setEmail] = useState("");

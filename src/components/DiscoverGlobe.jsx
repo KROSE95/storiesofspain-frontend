@@ -1,5 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import Globe from "react-globe.gl";
+import { BookContext } from "../context/BookContext";
 import { getBooks } from "../services/bookService";
 import BookCard from "./BookCard";
 import "./DiscoverGlobe.css";
@@ -16,16 +17,18 @@ const DiscoverGlobe = () => {
     // Spin the globe a little
     const lat = Math.random() * 180 - 90;
     const lng = Math.random() * 360 - 180;
-    globeRef.current.pointOfView({ lat, lng, altitude: 2 }, 2000);
+    globeRef.current.pointOfView({ lat, lng, altitude: 2 }, 1000);
 
+    
+      
     setTimeout(() => {
       setRandomBook(selected);
     }, 2200);
   };
 
   return (
-    <div className="discover-container row p-4 align-items-center">
-      <div className="col-md-10 text-center text-md-start mb-4 mb-md-0">
+    <div className="discover-container row p-8 align-items-center">
+      <div className="col-md-12 text-center text-md-start mb-4 mb-md-0">
         <h3 className="fw-bold">🌍 Discover Somewhere New</h3>
         <p>Click the globe to find a story set in a new place.</p>
 
@@ -37,14 +40,19 @@ const DiscoverGlobe = () => {
             width={300}
             height={300}
           />
+          
           {/* <p className="small mt-2 text-muted">Click the globe to spin</p> */}
         </div>
 
         {randomBook && (
-          <div className="mt-4 ">
-            <h5 className="mb-3 text-center">Your Book Destination:</h5>
+          <div id="discovery-result" className="mt-4 text-center">
+            <h5 className="mb-3">
+              📍 {randomBook.region} — {randomBook.title}
+            </h5>
             <div className="d-flex justify-content-center">
-              <BookCard book={randomBook} />
+              <div className="globe-book-card">
+                <BookCard book={randomBook} />
+              </div>
             </div>
           </div>
         )}

@@ -1,0 +1,36 @@
+.auth-wrapper {
+    min-height: 100vh;
+    background-color: var(--color-);
+    padding: 2rem;
+  }
+  
+  .auth-box {
+    background-color: white;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 450px;
+    width: 100%;
+    font-family: var(--font-body);
+  }
+  
+  .auth-box h2 {
+    font-family: var(--font-heading);
+    color: var(--color-brown);
+    margin-bottom: 1rem;
+  }
+  
+  .auth-box .form-control {
+    border-radius: 6px;
+  }
+  
+  .auth-box button {
+    background-color: var(--color-brown);
+    color: white;
+    font-weight: 600;
+    border: none;
+  }
+  
+  .auth-box button:hover {
+    background-color: #e96c5c;
+  }
+  
