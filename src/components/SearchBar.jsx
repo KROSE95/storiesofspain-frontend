@@ -1,8 +1,8 @@
 import React from "react";
 import "./SearchBar.css";
 
-const countryOptions = ["Spain", "France", "Italy", "Mexico"];
-const genreOptions = ["Historical Fiction", "Fantasy", "Romance", "Mystery"];
+const countryOptions = ["Spain", "France", "Afghanistan", "Italy", "Mexico"];
+const genreOptions = ["Historical Fiction", "Fantasy", "Romance", "Mystery", "Adventure Fiction"];
 
 const SearchBar = ({ filters, onFilterChange }) => {
   return (

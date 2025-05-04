@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import BookList from "../components/BookList.jsx";
 import SearchBar from "../components/SearchBar";
+import FilterBar from "../components/FilterBar";
+
 import { getBooks } from "../services/bookService";
 import { useLocation } from "react-router-dom";
 
@@ -8,6 +10,8 @@ const BookListPage = () => {
   const { search } = useLocation();
   const queryParams = new URLSearchParams(search);
   const initialCountry = queryParams.get("country") || "";
+  const initialGenre = queryParams.get("genre") || "";
+
 
   const [books, setBooks] = useState([]);
   const [filteredBooks, setFilteredBooks] = useState([]);
@@ -16,7 +20,7 @@ const BookListPage = () => {
     author: "",
     country: initialCountry,
     region: "",
-    genre: "",
+    genre: initialGenre,
   });
 
   // Replace with fetch if simulating API
@@ -43,21 +47,21 @@ const BookListPage = () => {
 
     const results = books.filter((book) => {
       const matchesTitle = book.title?.toLowerCase().includes(lowerTitle);
-  
+
       const matchesAuthor = lowerAuthor
         ? book.authorNames?.some((name) =>
             name.toLowerCase().includes(lowerAuthor)
           )
         : true;
-  
+
       const matchesCountry = lowerCountry
         ? book.country?.toLowerCase() === lowerCountry
         : true;
-  
+
       const matchesRegion = lowerRegion
         ? book.region?.toLowerCase() === lowerRegion
         : true;
-  
+
       const matchesGenre = lowerGenre
         ? book.genreNames?.some((g) => g.toLowerCase() === lowerGenre)
         : true;
@@ -66,7 +70,7 @@ const BookListPage = () => {
         matchesTitle &&
         matchesAuthor &&
         matchesCountry &&
-        matchesRegion && 
+        matchesRegion &&
         matchesGenre
       );
     });
@@ -76,15 +80,31 @@ const BookListPage = () => {
   }, [filters, books]);
 
   console.log("Active filters:", filters);
-// should print to browser's console what the current filter values are(title, author etc)
+  // should print to browser's console what the current filter values are(title, author etc)
   const handleFilterChange = (field, value) => {
-    setFilters((prev) => ({ ...prev, [field]: value }));
+    if (field === "reset") {
+      setFilters({
+        title: "",
+        author: "",
+        country: "",
+        region: "",
+        genre: "",
+      });
+    } else {
+      setFilters((prev) => ({ ...prev, [field]: value }));
+    }
   };
 
   return (
     <>
       <h2 className="mb-4">Explore the books of the World!</h2>
-      <SearchBar filters={filters} onFilterChange={handleFilterChange} />
+      {/* <SearchBar filters={filters} onFilterChange={handleFilterChange} /> */}
+      <FilterBar
+        filters={filters}
+        onFilterChange={handleFilterChange}
+        books={books}
+      />
+
       <BookList books={filteredBooks} />
     </>
   );

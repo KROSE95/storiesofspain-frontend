@@ -29,6 +29,20 @@
   font-weight: 500;
   color: var(--color-brown);
 }
+/*========================= Filters/searchbar ================================*/
+.filter-panel {
+  background-color: var(--color-yellow);
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.filter-panel .form-label {
+  font-weight: 600;
+  font-family: var(--font-heading);
+  color: var(--color-brown);
+}
+
 
 /*================== BUTTONS ===========================*/
 .btn-orange {
