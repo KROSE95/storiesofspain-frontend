@@ -31,6 +31,11 @@ const renderWithAllContexts = (books, props = {}) => {
 };
 
 describe("BookList", () => {
+      //  Edge case: Empty array
+  it("displays a message when no books are found", () => {
+    renderWithAllContexts([]);
+    expect(screen.getByText("No books found. Try changing your filters.")).toBeInTheDocument();
+  });
   it("renders book titles", () => {
     renderWithAllContexts(mockBooks);
 
