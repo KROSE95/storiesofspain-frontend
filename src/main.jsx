@@ -5,7 +5,7 @@ import { AuthProvider } from "./context/AuthContext";
 import { BookProvider } from "./context/BookContext.jsx";
 import { BookmarkProvider } from "./context/BookmarkContext.jsx";
 import "./index.css";
-import "./app.css";
+import "./App.css";
 import App from "./App.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
