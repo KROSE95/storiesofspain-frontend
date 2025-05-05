@@ -1,4 +1,4 @@
-// src/components/AdminActionButtons.jsx
+// src/components/ToggleAdminButton.jsx
 import React, { useContext } from "react";
 import { FaTrash, FaEdit } from "react-icons/fa";
 import { AuthContext } from "../context/AuthContext";
@@ -18,8 +18,9 @@ const AdminButtons = ({ book, onEdit, onDelete }) => {
         <FaEdit />
       </span>
       <span
-        onClick={() => onDelete(book.id)}
+        data-testid="delete-button"
         title="Delete Book"
+        onClick={() => onDelete(book.id)}
         style={{ cursor: "pointer", color: "#dc3545", fontSize: "1.4rem" }}
       >
         <FaTrash />
