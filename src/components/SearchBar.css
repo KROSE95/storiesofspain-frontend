@@ -1,5 +1,5 @@
 /* General search input + select styling */
-.form-control,
+/* .form-control,
 .form-select {
   font-family: var(--font-body);
   border: 1px solid var(--color-brown);
@@ -12,20 +12,20 @@
 .form-control:focus,
 .form-select:focus {
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 0.2rem rgba(247, 159, 121, 0.25); /* accent color glow */
-}
+  box-shadow: 0 0 0 0.2rem rgba(247, 159, 121, 0.25); 
+} */
 
 /* Placeholder text */
-::placeholder {
+/* ::placeholder {
   color: #8b8a87;
   font-style: italic;
-}
+} */
 
 /* Dropdown arrow customisation (maybe)  */
-.form-select {
+/* .form-select {
   appearance: none;
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='20,40 70,90 120,40' fill='none' stroke='%235B5941' stroke-width='10'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 1rem center;
   background-size: 1rem;
-}
+} */

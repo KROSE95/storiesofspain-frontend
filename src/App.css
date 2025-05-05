@@ -1,9 +1,8 @@
-
 /*================= LAYOUT, TYPOGRAPHY AND COMPONENTS ===========*/
 
 .homepage {
   /* background-color: var(--color-parchment); */
-  padding: 3% ;
+  padding: 3%;
 }
 
 .carousel-wrapper {
@@ -30,6 +29,38 @@
   color: var(--color-brown);
 }
 /*========================= Filters/searchbar ================================*/
+/* General search input + select styling */
+/* .form-control,
+.form-select {
+  font-family: var(--font-body);
+  border: 1px solid var(--color-brown);
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  background-color: #fffef8;
+  transition: border-color 0.3s;
+} */
+
+/* .form-control:focus,
+.form-select:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 0.2rem rgba(247, 159, 121, 0.25); 
+} */
+
+/* Placeholder text */
+/* ::placeholder {
+  color: #8b8a87;
+  font-style: italic;
+} */
+
+/* Dropdown arrow customisation (maybe)  */
+/* .form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='20,40 70,90 120,40' fill='none' stroke='%235B5941' stroke-width='10'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+} */
+
 .filter-panel {
   background-color: var(--color-yellow);
   padding: 1rem 1.5rem;
@@ -42,7 +73,6 @@
   font-family: var(--font-heading);
   color: var(--color-brown);
 }
-
 
 /*================== BUTTONS ===========================*/
 .btn-orange {
@@ -173,7 +203,6 @@
   text-decoration: underline;
 }
 
-
 .quote-block {
   font-family: var(--font-heading);
   color: var(--color-brown);
@@ -189,9 +218,7 @@
   border-radius: 10px;
   margin-bottom: 2rem;
   border: 2px solid var(--color-yellow); /* need to del*/
-  
 }
-
 
 /* Variants for color coordination */
 .panel-yellow {
@@ -231,4 +258,3 @@
   color: var(--color-accent); 
   text-decoration: underline;
 } */
-

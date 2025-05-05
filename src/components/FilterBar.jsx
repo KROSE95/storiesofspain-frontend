@@ -3,9 +3,7 @@ import React from "react";
 const FilterBar = ({ filters, onFilterChange, books }) => {
   const countries = [...new Set(books.map((book) => book.country))];
   const regions = [...new Set(books.map((book) => book.region))];
-  const genres = [
-    ...new Set(books.flatMap((book) => book.genreNames || []))
-  ];
+  const genres = [...new Set(books.flatMap((book) => book.genreNames || []))];
   // handles arrays
 
   return (
@@ -15,53 +13,71 @@ const FilterBar = ({ filters, onFilterChange, books }) => {
       <div className="row g-3 align-items-end">
         {/* Country */}
         <div className="col-sm-6 col-md-3">
-          <label className="form-label">Country</label>
+          <label htmlFor="country" className="form-label">
+            Country
+          </label>
           <select
+            id="country"
             className="form-select"
             value={filters.country}
             onChange={(e) => onFilterChange("country", e.target.value)}
           >
             <option value="">All</option>
             {countries.map((c) => (
-              <option key={c} value={c}>{c}</option>
+              <option key={c} value={c}>
+                {c}
+              </option>
             ))}
           </select>
         </div>
 
         {/* Region */}
         <div className="col-sm-6 col-md-3">
-          <label className="form-label">Region</label>
+          <label htmlFor="region" className="form-label">
+            Region
+          </label>
           <select
+            id="region"
             className="form-select"
             value={filters.region}
             onChange={(e) => onFilterChange("region", e.target.value)}
           >
             <option value="">All</option>
             {regions.map((r) => (
-              <option key={r} value={r}>{r}</option>
+              <option key={r} value={r}>
+                {r}
+              </option>
             ))}
           </select>
         </div>
 
         {/* Genre */}
         <div className="col-sm-6 col-md-3">
-          <label className="form-label">Genre</label>
+          <label htmlFor="genre" className="form-label">
+            Genre
+          </label>
           <select
+            id="genre"
             className="form-select"
             value={filters.genre}
             onChange={(e) => onFilterChange("genre", e.target.value)}
           >
             <option value="">All</option>
             {genres.map((g) => (
-              <option key={g} value={g}>{g}</option>
+              <option key={g} value={g}>
+                {g}
+              </option>
             ))}
           </select>
         </div>
 
         {/* Author */}
         <div className="col-sm-6 col-md-3">
-          <label className="form-label">Author</label>
+          <label htmlFor="author" className="form-label">
+            Author
+          </label>
           <input
+            id="author"
             type="text"
             className="form-control"
             placeholder="Type here"
@@ -70,13 +86,15 @@ const FilterBar = ({ filters, onFilterChange, books }) => {
           />
         </div>
       </div>
-    <div className="text-end mt-3">
-    <button className="btn btn-sm btn-outline-secondary" onClick={() => onFilterChange("reset")}>
-      Reset Filters
-    </button>
-  </div>
+      <div className="text-end mt-3">
+        <button
+          className="btn btn-sm btn-outline-secondary"
+          onClick={() => onFilterChange("reset")}
+        >
+          Reset Filters
+        </button>
+      </div>
     </div>
-  
   );
 };
 
