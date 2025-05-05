@@ -11,17 +11,18 @@ const BookCard = ({ book, onEdit, onDelete }) => {
     <div
       className={`book-card-container ${flipped ? "flipped" : ""}`}
       onClick={handleFlip}
+      data-testid="book-card-container"
     >
       <div className="book-card-inner">
         {/* FRONT */}
-        <div className="book-card-face book-card-front">
+        <div className="book-card-face book-card-front" data-testid="book-card-front">
           <img
             src={`/covers/${book.coverImage}`}
             alt={`${book.title} cover`}
             className="book-cover"
           />
           <div className="book-caption p-3 text-center">
-            <h5 className="mb-1">{book.title}</h5>
+            <h5 className="mb-1" data-testid="book-title">{book.title}</h5>
             <p className="mb-1 text-muted">{book.authorNames?.join(", ")}</p>
             <small className="text-muted">{book.country}</small>
           </div>
@@ -49,7 +50,6 @@ const BookCard = ({ book, onEdit, onDelete }) => {
           </div>
           <div className="card-footer d-flex justify-content-end gap-3">
             <AdminButtons book={book} onEdit={onEdit} onDelete={onDelete} />
-
             <ToggleBookmarkButton book={book} listName="favourites" />
             <ToggleBookmarkButton book={book} listName="toBeRead" />
           </div>

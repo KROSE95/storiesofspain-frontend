@@ -21,4 +21,9 @@ export default defineConfig({
     open: true,
     historyApiFallback: true, //  required for React Router
   },
+  test: {
+    globals: true, //to write test() and expect() without imports
+    environment: 'jsdom', //simulates browser DOM environment
+    setupFiles: './src/setupTests.js', //where the jest-dom matchers get imported
+  },
 });
