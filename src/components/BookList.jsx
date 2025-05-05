@@ -43,17 +43,7 @@ const BookList = ({ books: propBooks, onEdit, onDelete, horizontal = false }) =>
           </div>
         ))}
       </div>
-{/* 
-      {visibleCount < booksToRender.length && (
-        <div className="text-center mt-4">
-          <button className="text-decoration-none" onClick={handleLoadMore}>
-            Load More Books
-          </button>
-        </div>
-      )}
-    </>
-  );
-}; */}
+
 {!horizontal && visibleCount < booksToRender.length && (
         <div className="text-center mt-4">
           <button className="btn btn-orange text-decoration-none" onClick={handleLoadMore}>
