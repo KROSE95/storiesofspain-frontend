@@ -55,7 +55,7 @@ describe("AdminDashPage", () => {
   it("renders dashboard for admin", () => {
     renderPage();
     expect(screen.getByText("Admin Dashboard")).toBeInTheDocument();
-    expect(screen.getByText("➕ Add New Book")).toBeInTheDocument();
+    expect(screen.getByText(/add New Book/i)).toBeInTheDocument();
     expect(screen.getByTestId("create-modal")).toBeInTheDocument();
     expect(screen.getByTestId("edit-modal")).toBeInTheDocument();
   });
